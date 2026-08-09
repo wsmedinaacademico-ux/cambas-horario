@@ -60,9 +60,10 @@ Se usa la etiqueta `meta` y no un `robots.txt` con `Disallow` a propósito: un
 instrucción de no indexar; la URL puede terminar indexada igual si alguien la
 enlaza.
 
-## Pendiente conocido
+## Tipografía y logo
 
-El `index.html` publicado hoy **no lleva la tipografía Plus Jakarta Sans ni el
-logo de Icesi**: `src/marca.py` los busca en `Documentación/`, pero los archivos
-están en `Marca/`, y el cargador devuelve una cadena vacía sin avisar. La página
-cae a Segoe UI y sin logo. Al corregirlo hay que regenerar y volver a publicar.
+El `index.html` publicado lleva embebidos la tipografía Plus Jakarta Sans y el
+logo de Icesi, que `src/marca.py` toma de `Marca/`. Si alguno de esos archivos
+falta, el generador **falla con `FileNotFoundError` diciendo cuál es**: antes
+devolvía una cadena vacía y la página salía en Segoe UI y sin logo, un fallo que
+solo se notaba una vez publicada.
